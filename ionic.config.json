@@ -1,0 +1,7 @@
+{
+  "name": "Kulinarny Kacik Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
