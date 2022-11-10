@@ -1,17 +1,41 @@
 {
-  "short_name": "Ionic App",
-  "name": "My Ionic App",
+  "short_name": "Kulinarny Kącik",
+  "name": "Kulinarny Kącik",
   "icons": [
     {
-      "src": "assets/icon/favicon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "assets/icon/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
     },
     {
       "src": "assets/icon/icon.png",
       "type": "image/png",
+      "sizes": "1024x1024 512x512"
+    },
+    {
+      "src": "assets/icon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon/android-chrome-512x512.png",
       "sizes": "512x512",
-      "purpose": "maskable"
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/icon/favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
