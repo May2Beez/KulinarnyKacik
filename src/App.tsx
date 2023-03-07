@@ -1,18 +1,10 @@
-import { Redirect, Route } from "react-router-dom";
 import {
 	IonApp,
-	IonIcon,
-	IonLabel,
 	IonLoading,
-	IonRouterOutlet,
-	IonTabBar,
-	IonTabButton,
-	IonTabs,
 	setupIonicReact,
 	useIonToast,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { chatbox, fastFood, person } from "ionicons/icons";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -35,31 +27,16 @@ import "./theme/variables.css";
 import "./App.css";
 import "./pages/subpages/Przepisy/EdytorPrzepisu.css";
 
-import Konto from "./pages/Konto";
-import Rejestracja from "./pages/subpages/Konto/Rejestracja";
 import { useEffect } from "react";
-import { authentication, db } from "./firebase-config.config";
-import ZmianaDanych from "./pages/subpages/Konto/ZmianaDanych";
+import { authentication } from "./firebase-config.config";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Logowanie from "./pages/subpages/Konto/Logowanie";
-import NotFound from "./pages/NotFound";
 import _ from "lodash";
-import WszystkiePrzepisy from "./pages/subpages/Przepisy/WszystkiePrzepisy";
-import MojePrzepisy from "./pages/subpages/Przepisy/MojePrzepisy";
-import PrzepisInside from "./pages/subpages/Przepisy/PrzepisInside";
-import EdytorPrzepisu from "./pages/subpages/Przepisy/EdytorPrzepisu";
 import { FirebaseMessaging } from "@capacitor-firebase/messaging";
 import { getPlatforms } from "@ionic/core";
-import { Capacitor } from "@capacitor/core";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import {
-	fetchIngredients,
-	fetchMessages,
-	fetchRecipes,
-	fetchUsers,
-	saveUserData,
-} from "./fetches/FetchFirestore";
-import Messages from "./pages/subpages/Wiadomosci/Messages";
+import { fetchUsers, saveUserData } from "./fetches/FetchFirestore";
+import MobileNavBar from "./components/Routes/MobileNavBar";
+import DesktopNavBar from "./components/Routes/DesktopNavBar";
 
 setupIonicReact();
 
@@ -67,9 +44,10 @@ export const DEFAULT_ICON =
 	"https://firebasestorage.googleapis.com/v0/b/kulinarnykacik-83505.appspot.com/o/icon.png?alt=media&token=0bdd47c8-87b3-451a-8eb9-e5544e94f2d5";
 
 const App: React.FC = () => {
-	const {
-		data: users,
-	} = useQuery(["users"], fetchUsers, { staleTime: 3_600_000, retry: 2 });
+	const { data: users } = useQuery(["users"], fetchUsers, {
+		staleTime: 3_600_000,
+		retry: 2,
+	});
 
 	const userMutation = useMutation((data: any) => {
 		return saveUserData(data.uid, data.user);
@@ -79,14 +57,14 @@ const App: React.FC = () => {
 
 	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-	const [loggedUser, isLoadingAuth, error] = useAuthState(authentication);
+	const [loggedUser, isLoadingAuth,] = useAuthState(authentication);
 
 	const toggleDarkTheme = (shouldAdd: any) => {
 		document.body.classList.toggle("dark", shouldAdd);
 	};
 
 	const checkIfPlatform = (platf: string) => {
-		return !_.isEmpty(getPlatforms().filter((platform) => platform == platf));
+		return !_.isEmpty(getPlatforms().filter((platform) => platform === platf));
 	};
 
 	const saveToken = async (obj: any) => {
@@ -125,16 +103,10 @@ const App: React.FC = () => {
 			const notification = obj.notification;
 			console.log(users);
 			console.log("Push received: ", notification);
-			const receiverJson = JSON.parse(notification.title);
-			const receiver = users?.find((user: any) => user[0] == receiverJson.uid);
-			const username =
-				receiver != undefined
-					? `${receiver?.[1]?.name} ${receiver?.[1]?.surname}`
-					: receiverJson?.name + " " + receiverJson?.surname;
 
-			if (!window.location.href.includes(`/Wiadomosci/${receiverJson.uid}`)) {
+			if (!window.location.href.includes(`/Wiadomosci`)) {
 				presentToast({
-					header: "Wiadomość od " + username,
+					header: "Wiadomość od " + notification.title,
 					message: notification.body,
 					duration: 3000,
 					animated: true,
@@ -157,7 +129,7 @@ const App: React.FC = () => {
 		if (!loggedUser || !users) return;
 
 		FirebaseMessaging.requestPermissions().then(async (result: any) => {
-			if (result.receive == "granted") {
+			if (result.receive === "granted") {
 				// Register with Apple / Google to receive push via APNS/FCM
 				FirebaseMessaging.getToken({
 					vapidKey:
@@ -185,162 +157,23 @@ const App: React.FC = () => {
 		});
 	}, []);
 
+	if (isLoadingAuth) {
+		return (
+			<IonApp>
+				<IonLoading
+					isOpen={true}
+					message={"Ładowanie..."}
+					duration={5000}
+					spinner={"circles"}
+				/>
+			</IonApp>
+		);
+	}
+
 	return (
 		<IonApp>
 			<IonReactRouter>
-				<IonTabs>
-					<IonRouterOutlet animated={false}>
-						<Route
-							exact
-							path="/"
-							render={() => {
-								if (loggedUser) {
-									return <Redirect to="/MojePrzepisy" />;
-								} else {
-									return <Redirect to="/WszystkiePrzepisy" />;
-								}
-							}}
-						/>
-
-						<Route
-							exact
-							path="/Wiadomosci"
-							render={() => {
-								if (loggedUser) {
-									return <Messages />;
-								} else {
-									return <Redirect to="/Logowanie" />;
-								}
-							}}
-						/>
-
-						<Route
-							exact
-							path="/Wiadomosci/:receiver"
-							render={() => {
-								if (loggedUser) {
-									return <Messages />;
-								} else {
-									return <Redirect to="/Logowanie" />;
-								}
-							}}
-						/>
-
-						<Route
-							exact
-							path="/EdytorPrzepisu/:id"
-							component={EdytorPrzepisu}
-						/>
-
-						<Route exact path="/EdytorPrzepisu" component={EdytorPrzepisu} />
-
-						<Route
-							exact
-							path="/Przepis/:id"
-							render={(props) => <PrzepisInside {...props} />}
-						/>
-
-						<Route
-							exact
-							path="/WszystkiePrzepisy"
-							render={() => <WszystkiePrzepisy />}
-						/>
-
-						<Route
-							exact
-							path="/MojePrzepisy"
-							render={() => {
-								if (loggedUser) {
-									return <MojePrzepisy />;
-								} else {
-									return <Redirect to="/WszystkiePrzepisy" />;
-								}
-							}}
-						/>
-
-						<Route
-							exact
-							path="/Konto"
-							render={() => {
-								if (loggedUser) {
-									return <Konto />;
-								} else {
-									return <Redirect to="/Logowanie" />;
-								}
-							}}
-						/>
-
-						<Route
-							exact
-							path="/Logowanie"
-							render={() => {
-								if (loggedUser) {
-									return <Redirect to="/Konto" />;
-								} else {
-									return <Logowanie />;
-								}
-							}}
-						/>
-
-						<Route
-							exact
-							path="/ZmianaDanych"
-							render={() => {
-								if (loggedUser) {
-									return <ZmianaDanych />;
-								} else {
-									return <Redirect to="/Logowanie" />;
-								}
-							}}
-						/>
-
-						<Route
-							exact
-							path="/Rejestracja"
-							render={() => {
-								if (loggedUser) {
-									return <Redirect to="/Konto" />;
-								} else {
-									return <Rejestracja />;
-								}
-							}}
-						/>
-
-						<Route component={NotFound} />
-					</IonRouterOutlet>
-
-					<IonTabBar slot="bottom" className="bottom-nav-bar">
-						{loggedUser && (
-							<IonTabButton tab="MojePrzepisy" href="/MojePrzepisy">
-								<IonIcon icon={fastFood} />
-								<IonLabel>Moje Przepisy</IonLabel>
-							</IonTabButton>
-						)}
-						<IonTabButton tab="WszystkiePrzepisy" href="/WszystkiePrzepisy">
-							<IonIcon icon={fastFood} />
-							<IonLabel>Wszystkie Przepisy</IonLabel>
-						</IonTabButton>
-						{loggedUser && (
-							<IonTabButton
-								routerOptions={{
-									unmount: true,
-								}}
-								tab="Wiadomosci"
-								href="/Wiadomosci"
-							>
-								<IonIcon icon={chatbox} />
-								<IonLabel>Wiadomości</IonLabel>
-							</IonTabButton>
-						)}
-						<IonTabButton
-							tab="Konto"
-							href={loggedUser ? "/Konto" : "/Logowanie"}
-						>
-							<IonIcon icon={person} />
-							<IonLabel>{loggedUser ? "Konto" : "Logowanie"}</IonLabel>
-						</IonTabButton>
-					</IonTabBar>
-				</IonTabs>
+				{getPlatforms().includes("desktop") ? <DesktopNavBar /> : <MobileNavBar />}
 			</IonReactRouter>
 		</IonApp>
 	);
