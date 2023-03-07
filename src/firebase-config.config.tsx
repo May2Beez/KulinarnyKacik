@@ -5,7 +5,7 @@ import { getStorage } from "firebase/storage";
 import { getMessaging } from "@firebase/messaging";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyBWpEVN2CoFg16r7nAytIhBAVGNgLKaR1c",
+	apiKey: "",
 	authDomain: "kulinarnykacik-83505.firebaseapp.com",
 	databaseURL:
 		"https://kulinarnykacik-83505-default-rtdb.europe-west1.firebasedatabase.app",
