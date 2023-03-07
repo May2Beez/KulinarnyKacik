@@ -1,0 +1,28 @@
+.wyszukiwarkaContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wyszukiwarkaContainer .wyszukiwarkaHStack {
+    /* width: 60%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+.wyszukiwarkaModal::part(content) {
+    margin: 2rem;
+    height: auto;
+    border-radius: 2rem;
+    border: 3px solid var(--ion-color-primary-shade);
+}
+
+.modalButtons {
+    margin: 1rem;
+}
+.modalButtons ion-button {
+    font-size: 1rem;
+}

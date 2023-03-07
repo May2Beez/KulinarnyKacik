@@ -1,0 +1,48 @@
+.iloscPorcji {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.porcje {
+    /* justify-content: space-around; */
+}
+
+.centerIcons {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    text-align: center;
+    font-size: 1.75rem;
+    color: var(--ion-color-primary);
+    /* margin-right: 4rem; */
+}
+
+.centerIcons > * {
+    margin: 0 0.5rem;
+}
+
+.centerIcons ion-text {
+    color: var(--ion-color-dark);
+}
+
+.skladnik {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--ion-color-dark);
+}
+
+.skladnik > * {
+    margin: 0 0.25rem;
+}
+
+.mBottom {
+    margin-bottom: 1rem;
+}
+
+.skladniki > * {
+    margin: 0.25rem 0;
+}

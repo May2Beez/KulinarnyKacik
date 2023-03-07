@@ -1,0 +1,28 @@
+.logo {
+    display: flex;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    font-weight: bold;
+    font-size: large;
+}
+
+.logo-text > * {
+    margin: 0;
+}
+
+.nav-bar-desktop ion-item {
+    margin: 10px 0;
+}
+
+.navbar-dekstop-item {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}

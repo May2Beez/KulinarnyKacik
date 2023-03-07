@@ -1,0 +1,20 @@
+.formRegister {
+    margin: 3.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+    .formRegister {
+        max-width: 30vw;
+        margin: 3.5rem auto;
+    }
+}
+
+.formRegister .formItem {
+    margin: 1.5rem 0;
+}
+
+.formRegister ion-item {
+    border-radius: 8px;
+}

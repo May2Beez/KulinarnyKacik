@@ -1,0 +1,170 @@
+.clickablePrzepis {
+    cursor: pointer;
+}
+
+.roundedCard {
+    display: flex;
+    height: auto;
+    margin: 1.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(77, 77, 77, 0.425);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.roundedCard .description,
+.roundedCard .addDate,
+.roundedCard .author {
+    margin: 0.5rem;
+}
+
+.roundedCard .addDate {
+    margin-right: 0.25rem;
+}
+
+.roundedCard .author {
+    margin-top: 0;
+}
+
+.recipeName {
+    margin-top: 0.7rem;
+    margin-bottom: 0rem;
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.imageContainer {
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.placeholder-image {
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.diet {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: large;
+    padding: 0.3rem;
+    background-color: rgba(var(--ion-color-success-rgb), 0.5);
+    border-radius: 0 0.4rem 0 0;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: var(--ion-color-light);
+    text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.isPublic {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: large;
+    padding: 0.3rem;
+    background-color: rgba(var(--ion-color-tertiary-rgb), 0.6);
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: var(--ion-color-light);
+    text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 0.4rem 0 0 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .diet {
+        font-weight: 600;
+        color: var(--ion-color-dark);
+    }
+
+    .isPublic {
+        font-weight: 600;
+        color: var(--ion-color-dark);
+    }
+}
+
+
+.listHeader {
+    font-size: large;
+}
+
+.center {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.center > * {
+    margin: 0 0.25rem;
+}
+
+.centerV {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 15%;
+    height: 6rem;
+}
+
+.sharePopOver::part(content) {
+    --background: var(--ion-color-light);
+    --border-radius: 0.5rem;
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --max-width: 20rem;
+    --padding: 0.5rem;
+    --width: 100%;
+}
+
+.sharePopOver div.centerV {
+    cursor: pointer;
+}
+
+.options {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgba(var(--ion-color-primary-rgb), 0.9);
+    border-radius: 0 0 0 0.4rem;
+    padding: 0.1rem;
+    z-index: 10;
+    border: 2px solid rgb(0, 0, 0, 0.4);
+    border-top: 0;
+    border-right: 0;
+}
+
+.options ion-icon {
+    color: white;
+}
+
+.red:not(.sc-ion-action-sheet-ios) span {
+    color: var(--ion-color-danger, #eb445a);
+}
+
+.bold:not(.sc-ion-action-sheet-ios) span {
+    font-weight: bold;
+}

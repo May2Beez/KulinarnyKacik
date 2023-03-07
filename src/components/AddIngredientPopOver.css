@@ -1,0 +1,21 @@
+.popover-list {
+    --max-height: 15rem;
+    --offset-y: 9.5rem;
+    --max-width: 18rem;
+}
+
+.popover-list::part(content) {
+    border: 1px solid #4d4d4d;
+}
+
+.input-text {
+    font-size: 1.5rem;
+}
+
+.small-modal::part(content) {
+    width: 80%;
+    height: auto;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+}

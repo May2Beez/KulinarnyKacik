@@ -1,0 +1,26 @@
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.bigger-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 0.5rem;
+}
+
+.centerPolubienia {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.heartIcon {
+    font-size: 3.5rem;
+    -webkit-filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 0rem 0.5rem rgba(0, 0, 0, 0.3));
+}
+
+.heartIcon:hover {
+    cursor: pointer;
+}

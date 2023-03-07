@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "566913645425",
+    "firebase_url": "https://kulinarnykacik-83505-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "kulinarnykacik-83505",
+    "storage_bucket": "kulinarnykacik-83505.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566913645425:android:f78b8e8024eaca308ed4d0",
+        "android_client_info": {
+          "package_name": "com.kulinarnykacik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566913645425-k0nv2dvv1i2r6nn9llatecgfen378njj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPvKFjnvaHi7w85kJGpqvxciOhkUrUdto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566913645425-k0nv2dvv1i2r6nn9llatecgfen378njj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

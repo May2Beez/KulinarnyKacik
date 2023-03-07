@@ -1,0 +1,149 @@
+.edytor-przepisu {
+    margin: 5rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.edytor-przepisu > * {
+    margin: 0.5rem 0;
+}
+
+.edytor-przepisu ion-item {
+    border-radius: 0.5rem;
+}
+
+.edytor-przepisu ion-item,
+.edytor-przepisu > ion-button {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+.edit-description textarea {
+    height: 6rem;
+}
+
+.time-input input::-webkit-outer-spin-button,
+.time-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.time-input input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.skladnikOptionsPopover::part(content) {
+  width: max-content;
+  border-radius: 1rem;
+  /* --offset-y: 2rem; */
+  /* --offset-x: calc(fit-content * -1); */
+}
+
+.stepOptionsPopover::part(content) {
+  width: max-content;
+  border-radius: 1rem;
+  /* --offset-y: 2rem; */
+}
+
+.addStepModal ion-list .center-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addStepModal textarea {
+  height: 6rem;
+}
+
+.recipeStep {
+  margin: 0.5rem;
+}
+
+.recipeStepText {
+  margin: 0.5rem 0;
+}
+
+.recipeStepText :first-child {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.recipeStepText :nth-child(2) {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.recipeStepImg {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 0.15rem solid var(--ion-color-medium);
+  width: 100%;
+  max-width: 700px;
+  margin-top: 0.5rem;
+  align-self: center;
+}
+
+.stepImageContainer {
+  border-radius: 0.5rem;
+  background: var(--ion-item-background, var(--ion-background-color, #fff));
+}
+
+.stepTitle {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  align-self: flex-start;
+}
+
+.stepOpis {
+  font-size: 1rem;
+  width: 80%;
+}
+
+.stepHStack {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepOptions {
+  float: right;
+  align-self: flex-start;
+}
+
+.stepStack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  width: 100%;
+}
+
+.stepList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.stepList > * {
+  margin: 0.5rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .recipe-creator-content ion-item {
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .delete-photo-btn {
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+  

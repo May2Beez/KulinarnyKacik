@@ -1,0 +1,84 @@
+.center-text {
+    text-align: center;
+}
+
+ion-toolbar.ios~.content .title {
+    margin-top: 2rem;
+}
+
+ion-toolbar.ios~.content .title.ios {
+    margin-top: -0.5rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.hstack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.autorHStack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-right: 4rem; */
+}
+
+.autorHStack > * {
+    margin-right: 0.5rem;
+}
+
+.avatarInPrzepis {
+    border: 0.15rem solid var(--ion-color-success);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.centerNoAvatarInPrzepis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkolivegreen;
+    color: white;
+}
+
+.centerNoAvatarInPrzepis ion-text {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.step :first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.inne {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+}
+
+.inne > * {
+    margin: 0.25rem 0;
+}
+
+.comments {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}

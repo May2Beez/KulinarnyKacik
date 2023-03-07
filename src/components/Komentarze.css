@@ -1,0 +1,56 @@
+.noComments {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 1em;
+}
+
+
+
+.commentInput.ios {
+    padding-left: 0.5rem;
+}
+
+.addComment {
+    margin-top: 0.75rem;
+}
+
+.commentCard {
+    padding: 1rem;
+    width: 100%;
+}
+
+.dateText {
+    font-size: 0.7rem;
+    color: var(--ion-color-medium);
+}
+
+.between {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.commentCard > div > * {
+    margin: 0.25rem 0;
+}
+
+.biggerText {
+    font-size: 1.25rem;
+}
+
+.commentAuthor {
+    font-weight: bold;
+}
+
+.commentCard.ios {
+    margin: 0.5rem;
+}
+
+.commentCard .tresc > ion-text {
+    width: 80%;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.commentCard .tresc > ion-button {
+    align-self: flex-start;
+}

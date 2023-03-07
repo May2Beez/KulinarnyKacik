@@ -1,0 +1,50 @@
+.hstack {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+.buttonsPhoto {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.avatarStyle {
+    width: 6rem;
+    height: 6rem;
+}
+
+.cardInput {
+    filter: brightness(1.2);
+    border-radius: 0.5rem;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputsContainer > * {
+    margin: 0.75rem 0;
+}
+
+.cardInput ion-label {
+    z-index: 100;
+}
+
+.cardInput input:-webkit-autofill,
+.cardInput input:-webkit-autofill:hover, 
+.cardInput input:-webkit-autofill:focus, 
+.cardInput input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0px 1000px #1e1e1e inset;
+}
+
+.cardInput.ios input:-webkit-autofill,
+.cardInput.ios input:-webkit-autofill:hover, 
+.cardInput.ios input:-webkit-autofill:focus, 
+.cardInput.ios input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+}

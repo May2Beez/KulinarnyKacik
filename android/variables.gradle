@@ -1,0 +1,14 @@
+ext {
+    minSdkVersion = 24
+    compileSdkVersion = 33
+    targetSdkVersion = 30
+    androidxActivityVersion = '1.6.1'
+    androidxAppCompatVersion = '1.5.1'
+    androidxCoordinatorLayoutVersion = '1.2.0'
+    androidxCoreVersion = '1.9.0'
+    androidxFragmentVersion = '1.5.4'
+    junitVersion = '4.13.1'
+    androidxJunitVersion = '1.1.2'
+    androidxEspressoCoreVersion = '3.4.0'
+    cordovaAndroidVersion = '11.0.0'
+}
